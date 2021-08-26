@@ -4,10 +4,10 @@
     </div>
     <div class="opciones my-5">
         <ul>
-            <li>Inicio</li>
-            <li>Agendamiento de citas</li>
-            <li>Historial médico</li>
-            <li>Datos de usuario</li>
+            <li><a href="{{route('home')}}">Inicio</a></li>
+            <li><a href="{{route('agendamiento-citas')}}">Agendamiento de citas</a></li>
+            <li><a href="{{route('home')}}">Historial médico</a></li>
+            <li><a href="{{route('home')}}">Datos de usuario</a></li>
         </ul>
     </div>
 </div>

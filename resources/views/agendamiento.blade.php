@@ -70,12 +70,70 @@
                         </div>
                     </div>
                     <div class="container">
-
                         <div class="alert alert-primary">Escoja la especialidad que requiere para su cita medica. Si no esta
                             seguro de cual escoger le recomendamos que seleccioneRevisión General. Tenga en cuenta que no
                             todas
                             las especializaciones se encuentran disponibles en todas nuestras sedes</div>
                     </div>
+
+                    <h3 class="text-center texto-azul">Seleccione una de nuestras sedes</h3>
+                    <div class="container">
+                        <div class="row align-items-center justify-content-center">
+                            <div class="col">
+                                <div class="tarjeta-especialidad">
+                                    <img src="{{ asset('img/medicina-general.jpg') }}" class="img-fluid"
+                                        alt="Especialidad">
+                                    <div class="titulo-tarjeta-especialidad">Bosa</div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="tarjeta-especialidad">
+                                    <img src="{{ asset('img/dermatologia.jpg') }}" class="img-fluid" alt="Especialidad">
+                                    <div class="titulo-tarjeta-especialidad">Fontibon</div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="tarjeta-especialidad">
+                                    <img src="{{ asset('img/ginecologia.jpg') }}" class="img-fluid" alt="Especialidad">
+                                    <div class="titulo-tarjeta-especialidad">Suba</div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="tarjeta-especialidad">
+                                    <img src="{{ asset('img/urologia.jpg') }}" class="img-fluid" alt="Especialidad">
+                                    <div class="titulo-tarjeta-especialidad">Kennedy</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row align-items-center justify-content-center">
+                            <div class="col">
+                                <div class="tarjeta-especialidad">
+                                    <img src="{{ asset('img/oftalmologia.jpg') }}" class="img-fluid" alt="Especialidad">
+                                    <div class="titulo-tarjeta-especialidad">Usaquén</div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="tarjeta-especialidad">
+                                    <img src="{{ asset('img/pediatria.jpg') }}" class="img-fluid" alt="Especialidad">
+                                    <div class="titulo-tarjeta-especialidad">Chapinero</div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="tarjeta-especialidad">
+                                    <img src="{{ asset('img/geriatria.jpg') }}" class="img-fluid" alt="Especialidad">
+                                    <div class="titulo-tarjeta-especialidad">Teusaquillo</div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="tarjeta-especialidad">
+                                    <img src="{{ asset('img/neumologia.jpg') }}" class="img-fluid" alt="Especialidad">
+                                    <div class="titulo-tarjeta-especialidad">San Cristobal</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    
                 </div>
             </div>
         </div>

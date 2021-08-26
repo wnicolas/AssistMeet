@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,7 +20,7 @@ Route::get('/', function () {
 
 Route::get('/agendamiento-citas', function () {
     return view('agendamiento');
-});
+})->name('agendamiento-citas');
 
 Auth::routes();
 

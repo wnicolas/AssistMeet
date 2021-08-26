@@ -1,5 +1,5 @@
     <footer class="container-fluid bg-secondary">
-        <div class="container py-3">
+        <div class="container py-2">
             <div class="row">AssitsMeet Servicios médicos</div>
             <div class="row">
                 <div class="col-10">
