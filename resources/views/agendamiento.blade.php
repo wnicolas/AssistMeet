@@ -18,55 +18,63 @@
                         <div class="row align-items-center justify-content-center">
                             <div class="col">
                                 <div class="tarjeta-especialidad">
-                                    <img src="#" alt="Especialidad">
+                                    <img src="{{ asset('img/medicina-general.jpg') }}" class="img-fluid"
+                                        alt="Especialidad">
                                     <div class="titulo-tarjeta-especialidad">Revisión general</div>
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="tarjeta-especialidad">
-                                    <img src="#" alt="Especialidad">
+                                    <img src="{{ asset('img/dermatologia.jpg') }}" class="img-fluid" alt="Especialidad">
                                     <div class="titulo-tarjeta-especialidad">Dermatología</div>
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="tarjeta-especialidad">
-                                    <img src="#" alt="Especialidad">
+                                    <img src="{{ asset('img/ginecologia.jpg') }}" class="img-fluid" alt="Especialidad">
                                     <div class="titulo-tarjeta-especialidad">Ginecología</div>
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="tarjeta-especialidad">
-                                    <img src="#" alt="Especialidad">
-                                    <div class="titulo-tarjeta-especialidad">Urologíal</div>
+                                    <img src="{{ asset('img/urologia.jpg') }}" class="img-fluid" alt="Especialidad">
+                                    <div class="titulo-tarjeta-especialidad">Urología</div>
                                 </div>
                             </div>
                         </div>
                         <div class="row align-items-center justify-content-center">
                             <div class="col">
                                 <div class="tarjeta-especialidad">
-                                    <img src="#" alt="Especialidad">
+                                    <img src="{{ asset('img/oftalmologia.jpg') }}" class="img-fluid" alt="Especialidad">
                                     <div class="titulo-tarjeta-especialidad">Oftalmología</div>
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="tarjeta-especialidad">
-                                    <img src="#" alt="Especialidad">
+                                    <img src="{{ asset('img/pediatria.jpg') }}" class="img-fluid" alt="Especialidad">
                                     <div class="titulo-tarjeta-especialidad">Pediatría</div>
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="tarjeta-especialidad">
-                                    <img src="#" alt="Especialidad">
+                                    <img src="{{ asset('img/geriatria.jpg') }}" class="img-fluid" alt="Especialidad">
                                     <div class="titulo-tarjeta-especialidad">Geriatría</div>
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="tarjeta-especialidad">
-                                    <img src="#" alt="Especialidad">
+                                    <img src="{{ asset('img/neumologia.jpg') }}" class="img-fluid" alt="Especialidad">
                                     <div class="titulo-tarjeta-especialidad">Neumología</div>
                                 </div>
                             </div>
                         </div>
+                    </div>
+                    <div class="container">
+
+                        <div class="alert alert-primary">Escoja la especialidad que requiere para su cita medica. Si no esta
+                            seguro de cual escoger le recomendamos que seleccioneRevisión General. Tenga en cuenta que no
+                            todas
+                            las especializaciones se encuentran disponibles en todas nuestras sedes</div>
                     </div>
                 </div>
             </div>

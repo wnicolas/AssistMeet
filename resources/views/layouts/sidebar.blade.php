@@ -1,8 +1,8 @@
 <div class="col-3 sidebar">
-    <div class="p-1">
+    <div class="my-5">
         <img class="img-fluid" src="{{ asset('img/LogoAssistMeet.png') }}" alt="Logo de assistMeet">
     </div>
-    <div class="opciones">
+    <div class="opciones my-5">
         <ul>
             <li>Inicio</li>
             <li>Agendamiento de citas</li>
