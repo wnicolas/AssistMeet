@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\MedicoController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -25,3 +26,6 @@ Route::get('/agendamiento-citas', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+Route::resource('administracion', MedicoController::class);
