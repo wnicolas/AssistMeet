@@ -36,7 +36,12 @@ class MedicoController extends Controller
      */
     public function store(Request $request)
     {
+        // return $request->all();
         $medico = Medico::create(["id" => $request->identificacion, "nom_nombres" => $request->nombres, "nom_apellidos" => $request->apellidos, "f_nacimiento" => $request->fecha_nacimiento]);
+        foreach ($request->especialidad as $value) {
+
+            DB::statement('INSERT INTO medico_especialidad (id_medico, id_especialidad) values (?, ?)', [$request->identificacion, $value]);
+        }
         return "Médico " . $medico->nom_nombres . " " . $medico->nom_apellidos . " registrado exitosamente.";
     }
 

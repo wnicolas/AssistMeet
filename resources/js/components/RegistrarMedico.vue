@@ -47,6 +47,84 @@
           </div>
         </div>
       </div>
+      <h3>Especialidad(es)</h3>
+
+      <div class="row">
+        <div class="col">
+          <input
+            type="checkbox"
+            id="General"
+            value="1"
+            v-model="especialidad"
+          />
+          <label for="General">General</label>
+        </div>
+        <div class="col">
+          <input
+            type="checkbox"
+            id="Dermatología"
+            value="2"
+            v-model="especialidad"
+          />
+          <label for="Dermatología">Dermatología</label>
+        </div>
+        <div class="col">
+          <input
+            type="checkbox"
+            id="Ginecología"
+            value="3"
+            v-model="especialidad"
+          />
+          <label for="Ginecología">Ginecología</label>
+        </div>
+        <div class="col">
+          <input
+            type="checkbox"
+            id="Urología"
+            value="4"
+            v-model="especialidad"
+          />
+          <label for="Urología">Urología</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <input
+            type="checkbox"
+            id="Oftalmología"
+            value="5"
+            v-model="especialidad"
+          />
+          <label for="Oftalmología">Oftalmología</label>
+        </div>
+        <div class="col">
+          <input
+            type="checkbox"
+            id="Pediatría"
+            value="6"
+            v-model="especialidad"
+          />
+          <label for="Pediatría">Pediatría</label>
+        </div>
+        <div class="col">
+          <input
+            type="checkbox"
+            id="Geriatría"
+            value="7"
+            v-model="especialidad"
+          />
+          <label for="Geriatría">Geriatría</label>
+        </div>
+        <div class="col">
+          <input
+            type="checkbox"
+            id="Neumología"
+            value="8"
+            v-model="especialidad"
+          />
+          <label for="Neumología">Neumología</label>
+        </div>
+      </div>
     </form>
     <button class="btn btn-outline-primary" @click="registrarMedico">
       Registrar médico
@@ -64,6 +142,7 @@ export default {
         apellidos: "",
         fecha_nacimiento: "",
       },
+      especialidad: [],
       form: new FormData(),
     };
   },
@@ -72,6 +151,9 @@ export default {
       for (let name in this.medico) {
         this.form.append(name, this.medico[name]);
       }
+      this.especialidad.forEach((especialidad)=>{
+        this.form.append('especialidad[]',especialidad);
+      });
 
       axios
         .post("administracion", this.form)

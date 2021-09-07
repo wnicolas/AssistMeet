@@ -1936,6 +1936,84 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -1945,15 +2023,21 @@ __webpack_require__.r(__webpack_exports__);
         apellidos: "",
         fecha_nacimiento: ""
       },
+      especialidad: [],
       form: new FormData()
     };
   },
   methods: {
     registrarMedico: function registrarMedico() {
+      var _this = this;
+
       for (var name in this.medico) {
         this.form.append(name, this.medico[name]);
       }
 
+      this.especialidad.forEach(function (especialidad) {
+        _this.form.append('especialidad[]', especialidad);
+      });
       axios.post("administracion", this.form).then(function (result) {
         alert(result.data);
       })["catch"](function (err) {
@@ -37753,6 +37837,354 @@ var render = function() {
               }
             })
           ])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("h3", [_vm._v("Especialidad(es)")]),
+      _vm._v(" "),
+      _c("div", { staticClass: "row" }, [
+        _c("div", { staticClass: "col" }, [
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.especialidad,
+                expression: "especialidad"
+              }
+            ],
+            attrs: { type: "checkbox", id: "General", value: "1" },
+            domProps: {
+              checked: Array.isArray(_vm.especialidad)
+                ? _vm._i(_vm.especialidad, "1") > -1
+                : _vm.especialidad
+            },
+            on: {
+              change: function($event) {
+                var $$a = _vm.especialidad,
+                  $$el = $event.target,
+                  $$c = $$el.checked ? true : false
+                if (Array.isArray($$a)) {
+                  var $$v = "1",
+                    $$i = _vm._i($$a, $$v)
+                  if ($$el.checked) {
+                    $$i < 0 && (_vm.especialidad = $$a.concat([$$v]))
+                  } else {
+                    $$i > -1 &&
+                      (_vm.especialidad = $$a
+                        .slice(0, $$i)
+                        .concat($$a.slice($$i + 1)))
+                  }
+                } else {
+                  _vm.especialidad = $$c
+                }
+              }
+            }
+          }),
+          _vm._v(" "),
+          _c("label", { attrs: { for: "General" } }, [_vm._v("General")])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col" }, [
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.especialidad,
+                expression: "especialidad"
+              }
+            ],
+            attrs: { type: "checkbox", id: "Dermatología", value: "2" },
+            domProps: {
+              checked: Array.isArray(_vm.especialidad)
+                ? _vm._i(_vm.especialidad, "2") > -1
+                : _vm.especialidad
+            },
+            on: {
+              change: function($event) {
+                var $$a = _vm.especialidad,
+                  $$el = $event.target,
+                  $$c = $$el.checked ? true : false
+                if (Array.isArray($$a)) {
+                  var $$v = "2",
+                    $$i = _vm._i($$a, $$v)
+                  if ($$el.checked) {
+                    $$i < 0 && (_vm.especialidad = $$a.concat([$$v]))
+                  } else {
+                    $$i > -1 &&
+                      (_vm.especialidad = $$a
+                        .slice(0, $$i)
+                        .concat($$a.slice($$i + 1)))
+                  }
+                } else {
+                  _vm.especialidad = $$c
+                }
+              }
+            }
+          }),
+          _vm._v(" "),
+          _c("label", { attrs: { for: "Dermatología" } }, [
+            _vm._v("Dermatología")
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col" }, [
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.especialidad,
+                expression: "especialidad"
+              }
+            ],
+            attrs: { type: "checkbox", id: "Ginecología", value: "3" },
+            domProps: {
+              checked: Array.isArray(_vm.especialidad)
+                ? _vm._i(_vm.especialidad, "3") > -1
+                : _vm.especialidad
+            },
+            on: {
+              change: function($event) {
+                var $$a = _vm.especialidad,
+                  $$el = $event.target,
+                  $$c = $$el.checked ? true : false
+                if (Array.isArray($$a)) {
+                  var $$v = "3",
+                    $$i = _vm._i($$a, $$v)
+                  if ($$el.checked) {
+                    $$i < 0 && (_vm.especialidad = $$a.concat([$$v]))
+                  } else {
+                    $$i > -1 &&
+                      (_vm.especialidad = $$a
+                        .slice(0, $$i)
+                        .concat($$a.slice($$i + 1)))
+                  }
+                } else {
+                  _vm.especialidad = $$c
+                }
+              }
+            }
+          }),
+          _vm._v(" "),
+          _c("label", { attrs: { for: "Ginecología" } }, [
+            _vm._v("Ginecología")
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col" }, [
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.especialidad,
+                expression: "especialidad"
+              }
+            ],
+            attrs: { type: "checkbox", id: "Urología", value: "4" },
+            domProps: {
+              checked: Array.isArray(_vm.especialidad)
+                ? _vm._i(_vm.especialidad, "4") > -1
+                : _vm.especialidad
+            },
+            on: {
+              change: function($event) {
+                var $$a = _vm.especialidad,
+                  $$el = $event.target,
+                  $$c = $$el.checked ? true : false
+                if (Array.isArray($$a)) {
+                  var $$v = "4",
+                    $$i = _vm._i($$a, $$v)
+                  if ($$el.checked) {
+                    $$i < 0 && (_vm.especialidad = $$a.concat([$$v]))
+                  } else {
+                    $$i > -1 &&
+                      (_vm.especialidad = $$a
+                        .slice(0, $$i)
+                        .concat($$a.slice($$i + 1)))
+                  }
+                } else {
+                  _vm.especialidad = $$c
+                }
+              }
+            }
+          }),
+          _vm._v(" "),
+          _c("label", { attrs: { for: "Urología" } }, [_vm._v("Urología")])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "row" }, [
+        _c("div", { staticClass: "col" }, [
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.especialidad,
+                expression: "especialidad"
+              }
+            ],
+            attrs: { type: "checkbox", id: "Oftalmología", value: "5" },
+            domProps: {
+              checked: Array.isArray(_vm.especialidad)
+                ? _vm._i(_vm.especialidad, "5") > -1
+                : _vm.especialidad
+            },
+            on: {
+              change: function($event) {
+                var $$a = _vm.especialidad,
+                  $$el = $event.target,
+                  $$c = $$el.checked ? true : false
+                if (Array.isArray($$a)) {
+                  var $$v = "5",
+                    $$i = _vm._i($$a, $$v)
+                  if ($$el.checked) {
+                    $$i < 0 && (_vm.especialidad = $$a.concat([$$v]))
+                  } else {
+                    $$i > -1 &&
+                      (_vm.especialidad = $$a
+                        .slice(0, $$i)
+                        .concat($$a.slice($$i + 1)))
+                  }
+                } else {
+                  _vm.especialidad = $$c
+                }
+              }
+            }
+          }),
+          _vm._v(" "),
+          _c("label", { attrs: { for: "Oftalmología" } }, [
+            _vm._v("Oftalmología")
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col" }, [
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.especialidad,
+                expression: "especialidad"
+              }
+            ],
+            attrs: { type: "checkbox", id: "Pediatría", value: "6" },
+            domProps: {
+              checked: Array.isArray(_vm.especialidad)
+                ? _vm._i(_vm.especialidad, "6") > -1
+                : _vm.especialidad
+            },
+            on: {
+              change: function($event) {
+                var $$a = _vm.especialidad,
+                  $$el = $event.target,
+                  $$c = $$el.checked ? true : false
+                if (Array.isArray($$a)) {
+                  var $$v = "6",
+                    $$i = _vm._i($$a, $$v)
+                  if ($$el.checked) {
+                    $$i < 0 && (_vm.especialidad = $$a.concat([$$v]))
+                  } else {
+                    $$i > -1 &&
+                      (_vm.especialidad = $$a
+                        .slice(0, $$i)
+                        .concat($$a.slice($$i + 1)))
+                  }
+                } else {
+                  _vm.especialidad = $$c
+                }
+              }
+            }
+          }),
+          _vm._v(" "),
+          _c("label", { attrs: { for: "Pediatría" } }, [_vm._v("Pediatría")])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col" }, [
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.especialidad,
+                expression: "especialidad"
+              }
+            ],
+            attrs: { type: "checkbox", id: "Geriatría", value: "7" },
+            domProps: {
+              checked: Array.isArray(_vm.especialidad)
+                ? _vm._i(_vm.especialidad, "7") > -1
+                : _vm.especialidad
+            },
+            on: {
+              change: function($event) {
+                var $$a = _vm.especialidad,
+                  $$el = $event.target,
+                  $$c = $$el.checked ? true : false
+                if (Array.isArray($$a)) {
+                  var $$v = "7",
+                    $$i = _vm._i($$a, $$v)
+                  if ($$el.checked) {
+                    $$i < 0 && (_vm.especialidad = $$a.concat([$$v]))
+                  } else {
+                    $$i > -1 &&
+                      (_vm.especialidad = $$a
+                        .slice(0, $$i)
+                        .concat($$a.slice($$i + 1)))
+                  }
+                } else {
+                  _vm.especialidad = $$c
+                }
+              }
+            }
+          }),
+          _vm._v(" "),
+          _c("label", { attrs: { for: "Geriatría" } }, [_vm._v("Geriatría")])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col" }, [
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.especialidad,
+                expression: "especialidad"
+              }
+            ],
+            attrs: { type: "checkbox", id: "Neumología", value: "8" },
+            domProps: {
+              checked: Array.isArray(_vm.especialidad)
+                ? _vm._i(_vm.especialidad, "8") > -1
+                : _vm.especialidad
+            },
+            on: {
+              change: function($event) {
+                var $$a = _vm.especialidad,
+                  $$el = $event.target,
+                  $$c = $$el.checked ? true : false
+                if (Array.isArray($$a)) {
+                  var $$v = "8",
+                    $$i = _vm._i($$a, $$v)
+                  if ($$el.checked) {
+                    $$i < 0 && (_vm.especialidad = $$a.concat([$$v]))
+                  } else {
+                    $$i > -1 &&
+                      (_vm.especialidad = $$a
+                        .slice(0, $$i)
+                        .concat($$a.slice($$i + 1)))
+                  }
+                } else {
+                  _vm.especialidad = $$c
+                }
+              }
+            }
+          }),
+          _vm._v(" "),
+          _c("label", { attrs: { for: "Neumología" } }, [_vm._v("Neumología")])
         ])
       ])
     ]),
