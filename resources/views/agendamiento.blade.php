@@ -8,7 +8,7 @@
                 <div class="card contenido scroll-vertical">
                     <div class="jumbotron jumbotron-fluid">
                         <div class="container">
-                            <h1 class="display-4">¡Agendamiento de citas!</h1>
+                            <h1>¡Agendamiento de citas!</h1>
                             <p class="lead">Agenda tu cita con nuestros los mejores médicos en la especialidad que
                                 quieras
                                 en el horario que más te convenga.</p>

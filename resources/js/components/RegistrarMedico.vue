@@ -1,6 +1,7 @@
 <template>
-  <div class="container">
+  <div class="container my-5">
     <form action="">
+      <h4>Información personal</h4>
       <div class="row">
         <div class="col-12 col-sm-12 col-md-6 col-lg-3">
           <div class="form-group">
@@ -47,7 +48,7 @@
           </div>
         </div>
       </div>
-      <h3>Especialidad(es)</h3>
+      <h4>Especialidad(es)</h4>
 
       <div class="row">
         <div class="col">

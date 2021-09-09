@@ -8,12 +8,12 @@
                 <div class="card contenido scroll-vertical">
                     <div class="jumbotron jumbotron-fluid">
                         <div class="container">
-                            <h1 class="display-4">Historial médico</h1>
+                            <h1>Historial médico</h1>
                             <p class="lead">Aquí podrás ver los detalles de tu historia clínica como tratamientos
                                 tomados, diagnósticos, y más información.</p>
                         </div>
                     </div>
-                    <div class="container-fluid">
+                    <div class="container-fluid my-3">
                         <div class="row">
                             <div class="col-4">
                                 <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist"

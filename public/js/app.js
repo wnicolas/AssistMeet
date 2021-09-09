@@ -2234,6 +2234,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -37942,8 +37943,10 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "container" }, [
+  return _c("div", { staticClass: "container my-5" }, [
     _c("form", { attrs: { action: "" } }, [
+      _c("h4", [_vm._v("Información personal")]),
+      _vm._v(" "),
       _c("div", { staticClass: "row" }, [
         _c("div", { staticClass: "col-12 col-sm-12 col-md-6 col-lg-3" }, [
           _c("div", { staticClass: "form-group" }, [
@@ -38060,7 +38063,7 @@ var render = function() {
         ])
       ]),
       _vm._v(" "),
-      _c("h3", [_vm._v("Especialidad(es)")]),
+      _c("h4", [_vm._v("Especialidad(es)")]),
       _vm._v(" "),
       _c("div", { staticClass: "row" }, [
         _c("div", { staticClass: "col" }, [

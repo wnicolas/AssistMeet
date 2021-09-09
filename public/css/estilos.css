@@ -1,3 +1,9 @@
+body{
+  color: #72b7e2;
+}
+h1{
+  font-weight:900;
+}
 .tarjeta-login {
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
@@ -24,10 +30,11 @@
 
 footer {
   color: #72b7e2;
-  position: fixed;
+  position: relative;
   bottom: 0;
-  height: 10vh;
-  background-color: rgb(240, 240, 240);
+  height: 15vh;
+  background-color: rgb(246, 246, 246);
+  padding: 1rem 0;
 }
 
 .contenido {
@@ -58,7 +65,7 @@ footer {
 }
 
 .bg-gris {
-  background-color: rgb(230, 230, 230);
+  background-color: rgb(246, 246, 246);
 }
 .bg-blanco {
   background-color: rgb(255, 255, 255);
