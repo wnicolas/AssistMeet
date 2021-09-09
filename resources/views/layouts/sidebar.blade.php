@@ -8,6 +8,7 @@
             <li><a href="{{route('agendamiento-citas')}}">Agendamiento de citas</a></li>
             <li><a href="{{route('historial-medico')}}">Tu historial médico</a></li>
             <li><a href="{{route('tus-datos')}}">Tus datos de usuario</a></li>
+            <li><a href="{{route('registrar-medico')}}">Registrar médico</a></li>
         </ul>
     </div>
 </div>

@@ -31,6 +31,12 @@ Route::get('/tus-datos', function () {
     return view('tus-datos');
 })->name('tus-datos');
 
+// Después borraremos esto
+Route::get('/registrar-medico', function () {
+    return view('administrador');
+})->name('registrar-medico');
+// Después borraremos esto
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
