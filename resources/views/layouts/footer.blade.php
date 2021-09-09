@@ -1,4 +1,4 @@
-    <footer class="container-fluid bg-secondary">
+    <footer class="container-fluid">
         <div class="container py-2">
             <div class="row">AssitsMeet Servicios médicos</div>
             <div class="row">

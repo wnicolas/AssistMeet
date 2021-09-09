@@ -27,6 +27,7 @@ footer {
   position: fixed;
   bottom: 0;
   height: 10vh;
+  background-color: rgb(240, 240, 240);
 }
 
 .contenido {
@@ -59,15 +60,18 @@ footer {
 .bg-gris {
   background-color: rgb(230, 230, 230);
 }
+.bg-blanco {
+  background-color: rgb(255, 255, 255);
+}
 
 .tabla-azul {
   background-color: rgb(255, 255, 255);
   color: #72b7e2;
 }
 
-.esquinas-redondeadas{
-    border-bottom-left-radius: 20px;
-    border-top-left-radius: 20px;
-    border-bottom-right-radius: 20px;
-    border-top-right-radius: 20px;
+.esquinas-redondeadas {
+  border-bottom-left-radius: 20px;
+  border-top-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  border-top-right-radius: 20px;
 }

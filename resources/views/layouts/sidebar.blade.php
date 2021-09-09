@@ -6,8 +6,8 @@
         <ul>
             <li><a href="{{route('home')}}">Inicio</a></li>
             <li><a href="{{route('agendamiento-citas')}}">Agendamiento de citas</a></li>
-            <li><a href="{{route('home')}}">Historial médico</a></li>
-            <li><a href="{{route('home')}}">Datos de usuario</a></li>
+            <li><a href="{{route('historial-medico')}}">Tu historial médico</a></li>
+            <li><a href="{{route('tus-datos')}}">Tus datos de usuario</a></li>
         </ul>
     </div>
 </div>

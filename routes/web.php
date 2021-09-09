@@ -23,6 +23,14 @@ Route::get('/agendamiento-citas', function () {
     return view('agendamiento');
 })->name('agendamiento-citas');
 
+Route::get('/historial-medico', function () {
+    return view('historial-medico');
+})->name('historial-medico');
+
+Route::get('/tus-datos', function () {
+    return view('tus-datos');
+})->name('tus-datos');
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
