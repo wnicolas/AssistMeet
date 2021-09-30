@@ -44,6 +44,8 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 
 Route::resource('medicos', MedicoController::class);
+Route::get('recuperar-medicos', [MedicoController::class,'recuperarMedicos']);
 
 Route::resource('pacientes', PacienteController::class);
+Route::get('recuperar-pacientes', [PacienteController::class,'recuperarPacientes']);
 

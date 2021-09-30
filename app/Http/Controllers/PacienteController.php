@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Paciente;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class PacienteController extends Controller
 {
@@ -84,5 +85,11 @@ class PacienteController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function recuperarPacientes(){
+        // return "Hola mundi";
+        $pacientes=DB::select("SELECT *,concat(concat(id,' '),concat(concat(nom_nombres,' '),nom_apellidos)) as filtro FROM pacientes");
+        return $pacientes;
     }
 }

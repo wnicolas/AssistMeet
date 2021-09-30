@@ -89,4 +89,10 @@ class MedicoController extends Controller
     {
         //
     }
+
+    public function recuperarMedicos(){
+        // return "Hola mundi";
+        $medicos=DB::select("SELECT *,concat(concat(id,' '),concat(concat(nom_nombres,' '),nom_apellidos)) as filtro FROM medicos");
+        return $medicos;
+    }
 }
