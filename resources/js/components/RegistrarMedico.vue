@@ -157,7 +157,7 @@ export default {
       });
 
       axios
-        .post("administracion", this.form)
+        .post("medicos", this.form)
         .then((result) => {
           alert(result.data);
         })

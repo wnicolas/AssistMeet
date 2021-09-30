@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\MedicoController;
+use App\Http\Controllers\PacienteController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -42,4 +43,7 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 
-Route::resource('administracion', MedicoController::class);
+Route::resource('medicos', MedicoController::class);
+
+Route::resource('pacientes', PacienteController::class);
+
