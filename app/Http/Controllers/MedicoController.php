@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Medico;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 
 class MedicoController extends Controller
 {
@@ -37,11 +39,21 @@ class MedicoController extends Controller
     public function store(Request $request)
     {
         // return $request->all();
-        $medico = Medico::create(["id" => $request->identificacion, "nom_nombres" => $request->nombres, "nom_apellidos" => $request->apellidos, "f_nacimiento" => $request->fecha_nacimiento]);
+        $medico = Medico::create(["id" => $request->id, "nom_nombres" => $request->nom_nombres, "nom_apellidos" => $request->nom_apellidos, "f_nacimiento" => $request->f_nacimiento, 'email' => $request->email, 'sexo' => $request->sexo]);
         foreach ($request->especialidad as $value) {
 
-            DB::statement('INSERT INTO medico_especialidad (id_medico, id_especialidad) values (?, ?)', [$request->identificacion, $value]);
+            DB::statement('INSERT INTO medico_especialidad (id_medico, id_especialidad) values (?, ?)', [$request->id, $value]);
         }
+
+        $user=User::create([
+            'name' => $medico->nom_nombres . ' ' . $medico->nom_apellidos,
+            'email' => $medico->email,
+            'role' => "Medico",
+            'password' => Hash::make('secret'),
+        ]);
+
+        DB::update("UPDATE `medicos` SET `user_id` = ? WHERE `medicos`.`id` = ?", [$user->id, $request->id]);
+
         return "Médico " . $medico->nom_nombres . " " . $medico->nom_apellidos . " registrado exitosamente.";
     }
 
@@ -90,9 +102,10 @@ class MedicoController extends Controller
         //
     }
 
-    public function recuperarMedicos(){
+    public function recuperarMedicos()
+    {
         // return "Hola mundi";
-        $medicos=DB::select("SELECT *,concat(concat(id,' '),concat(concat(nom_nombres,' '),nom_apellidos)) as filtro FROM medicos");
+        $medicos = DB::select("SELECT *,concat(concat(id,' '),concat(concat(nom_nombres,' '),nom_apellidos)) as filtro FROM medicos");
         return $medicos;
     }
 }

@@ -8,7 +8,7 @@
             <label for="">Identificación</label>
             <input
               type="text"
-              v-model="medico.identificacion"
+              v-model="medico.id"
               placeholder="Identificación"
               class="form-control"
             />
@@ -19,7 +19,7 @@
             <label for="">Nombres</label>
             <input
               type="text"
-              v-model="medico.nombres"
+              v-model="medico.nom_nombres"
               placeholder="Nombres"
               class="form-control"
             />
@@ -30,7 +30,7 @@
             <label for="">Apellidos</label>
             <input
               type="text"
-              v-model="medico.apellidos"
+              v-model="medico.nom_apellidos"
               placeholder="Apellidos"
               class="form-control"
             />
@@ -41,11 +41,31 @@
             <label for="">Fecha de nacimiento</label>
             <input
               type="date"
-              v-model="medico.fecha_nacimiento"
+              v-model="medico.f_nacimiento"
               placeholder="Fecha de nacimiento"
               class="form-control"
             />
           </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <div class="form-group">
+            <label for="">Email</label>
+            <input
+              type="text"
+              v-model="medico.email"
+              placeholder="Email"
+              class="form-control"
+            />
+          </div>
+        </div>
+        <div class="col form-group text-center">
+          <label for="">Genero</label>
+          <select v-model="medico.sexo" class="form-control" name="" id="">
+            <option>Masculino</option>
+            <option>Femenino</option>
+          </select>
         </div>
       </div>
       <h4>Especialidad(es)</h4>
@@ -138,10 +158,12 @@ export default {
   data() {
     return {
       medico: {
-        identificacion: "",
-        nombres: "",
-        apellidos: "",
-        fecha_nacimiento: "",
+        id: "",
+        nom_nombres: "",
+        nom_apellidos: "",
+        f_nacimiento: "",
+        email: "",
+        sexo:"",
       },
       especialidad: [],
       form: new FormData(),
@@ -152,14 +174,15 @@ export default {
       for (let name in this.medico) {
         this.form.append(name, this.medico[name]);
       }
-      this.especialidad.forEach((especialidad)=>{
-        this.form.append('especialidad[]',especialidad);
+      this.especialidad.forEach((especialidad) => {
+        this.form.append("especialidad[]", especialidad);
       });
 
       axios
         .post("medicos", this.form)
         .then((result) => {
           alert(result.data);
+          location.reload();
         })
         .catch((err) => {
           alert("Algo acaba de salir mal");

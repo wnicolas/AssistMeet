@@ -2235,14 +2235,36 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
       medico: {
-        identificacion: "",
-        nombres: "",
-        apellidos: "",
-        fecha_nacimiento: ""
+        id: "",
+        nom_nombres: "",
+        nom_apellidos: "",
+        f_nacimiento: "",
+        email: "",
+        sexo: ""
       },
       especialidad: [],
       form: new FormData()
@@ -2257,10 +2279,11 @@ __webpack_require__.r(__webpack_exports__);
       }
 
       this.especialidad.forEach(function (especialidad) {
-        _this.form.append('especialidad[]', especialidad);
+        _this.form.append("especialidad[]", especialidad);
       });
       axios.post("medicos", this.form).then(function (result) {
         alert(result.data);
+        location.reload();
       })["catch"](function (err) {
         alert("Algo acaba de salir mal");
       });
@@ -38542,19 +38565,19 @@ var render = function() {
                 {
                   name: "model",
                   rawName: "v-model",
-                  value: _vm.medico.identificacion,
-                  expression: "medico.identificacion"
+                  value: _vm.medico.id,
+                  expression: "medico.id"
                 }
               ],
               staticClass: "form-control",
               attrs: { type: "text", placeholder: "Identificación" },
-              domProps: { value: _vm.medico.identificacion },
+              domProps: { value: _vm.medico.id },
               on: {
                 input: function($event) {
                   if ($event.target.composing) {
                     return
                   }
-                  _vm.$set(_vm.medico, "identificacion", $event.target.value)
+                  _vm.$set(_vm.medico, "id", $event.target.value)
                 }
               }
             })
@@ -38570,19 +38593,19 @@ var render = function() {
                 {
                   name: "model",
                   rawName: "v-model",
-                  value: _vm.medico.nombres,
-                  expression: "medico.nombres"
+                  value: _vm.medico.nom_nombres,
+                  expression: "medico.nom_nombres"
                 }
               ],
               staticClass: "form-control",
               attrs: { type: "text", placeholder: "Nombres" },
-              domProps: { value: _vm.medico.nombres },
+              domProps: { value: _vm.medico.nom_nombres },
               on: {
                 input: function($event) {
                   if ($event.target.composing) {
                     return
                   }
-                  _vm.$set(_vm.medico, "nombres", $event.target.value)
+                  _vm.$set(_vm.medico, "nom_nombres", $event.target.value)
                 }
               }
             })
@@ -38598,19 +38621,19 @@ var render = function() {
                 {
                   name: "model",
                   rawName: "v-model",
-                  value: _vm.medico.apellidos,
-                  expression: "medico.apellidos"
+                  value: _vm.medico.nom_apellidos,
+                  expression: "medico.nom_apellidos"
                 }
               ],
               staticClass: "form-control",
               attrs: { type: "text", placeholder: "Apellidos" },
-              domProps: { value: _vm.medico.apellidos },
+              domProps: { value: _vm.medico.nom_apellidos },
               on: {
                 input: function($event) {
                   if ($event.target.composing) {
                     return
                   }
-                  _vm.$set(_vm.medico, "apellidos", $event.target.value)
+                  _vm.$set(_vm.medico, "nom_apellidos", $event.target.value)
                 }
               }
             })
@@ -38628,23 +38651,95 @@ var render = function() {
                 {
                   name: "model",
                   rawName: "v-model",
-                  value: _vm.medico.fecha_nacimiento,
-                  expression: "medico.fecha_nacimiento"
+                  value: _vm.medico.f_nacimiento,
+                  expression: "medico.f_nacimiento"
                 }
               ],
               staticClass: "form-control",
               attrs: { type: "date", placeholder: "Fecha de nacimiento" },
-              domProps: { value: _vm.medico.fecha_nacimiento },
+              domProps: { value: _vm.medico.f_nacimiento },
               on: {
                 input: function($event) {
                   if ($event.target.composing) {
                     return
                   }
-                  _vm.$set(_vm.medico, "fecha_nacimiento", $event.target.value)
+                  _vm.$set(_vm.medico, "f_nacimiento", $event.target.value)
                 }
               }
             })
           ])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "row" }, [
+        _c("div", { staticClass: "col" }, [
+          _c("div", { staticClass: "form-group" }, [
+            _c("label", { attrs: { for: "" } }, [_vm._v("Email")]),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.medico.email,
+                  expression: "medico.email"
+                }
+              ],
+              staticClass: "form-control",
+              attrs: { type: "text", placeholder: "Email" },
+              domProps: { value: _vm.medico.email },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.medico, "email", $event.target.value)
+                }
+              }
+            })
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col form-group text-center" }, [
+          _c("label", { attrs: { for: "" } }, [_vm._v("Genero")]),
+          _vm._v(" "),
+          _c(
+            "select",
+            {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.medico.sexo,
+                  expression: "medico.sexo"
+                }
+              ],
+              staticClass: "form-control",
+              attrs: { name: "", id: "" },
+              on: {
+                change: function($event) {
+                  var $$selectedVal = Array.prototype.filter
+                    .call($event.target.options, function(o) {
+                      return o.selected
+                    })
+                    .map(function(o) {
+                      var val = "_value" in o ? o._value : o.value
+                      return val
+                    })
+                  _vm.$set(
+                    _vm.medico,
+                    "sexo",
+                    $event.target.multiple ? $$selectedVal : $$selectedVal[0]
+                  )
+                }
+              }
+            },
+            [
+              _c("option", [_vm._v("Masculino")]),
+              _vm._v(" "),
+              _c("option", [_vm._v("Femenino")])
+            ]
+          )
         ])
       ]),
       _vm._v(" "),

@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Paciente;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 
 class PacienteController extends Controller
 {
@@ -38,6 +40,14 @@ class PacienteController extends Controller
     {
         // return $request->all();
         $paciente = Paciente::create($request->all());
+
+        $user=User::create([
+            'name' => $paciente->nom_nombres.' ' .$paciente->nom_apellidos,
+            'email' =>$paciente->email,
+            'password' => Hash::make('secret'),
+        ]);
+
+        DB::update("UPDATE `pacientes` SET `user_id` = ? WHERE `pacientes`.`id` = ?", [$user->id, $request->id]);
        
         return "Paciente " . $paciente->nom_nombres . " " . $paciente->nom_apellidos . " registrado exitosamente.";
     }
