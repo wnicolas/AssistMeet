@@ -41,14 +41,14 @@ class PacienteController extends Controller
         // return $request->all();
         $paciente = Paciente::create($request->all());
 
-        $user=User::create([
-            'name' => $paciente->nom_nombres.' ' .$paciente->nom_apellidos,
-            'email' =>$paciente->email,
+        $user = User::create([
+            'name' => $paciente->nom_nombres . ' ' . $paciente->nom_apellidos,
+            'email' => $paciente->email,
             'password' => Hash::make('secret'),
         ]);
 
         DB::update("UPDATE `pacientes` SET `user_id` = ? WHERE `pacientes`.`id` = ?", [$user->id, $request->id]);
-       
+
         return "Paciente " . $paciente->nom_nombres . " " . $paciente->nom_apellidos . " registrado exitosamente.";
     }
 
@@ -94,12 +94,17 @@ class PacienteController extends Controller
      */
     public function destroy($id)
     {
-        //
+        // return $id;
+        $paciente = Paciente::find($id);
+        $user = User::find($paciente->user_id);
+        $user->delete();
+        return "Paciente eliminado con éxito";
     }
 
-    public function recuperarPacientes(){
+    public function recuperarPacientes()
+    {
         // return "Hola mundi";
-        $pacientes=DB::select("SELECT *,concat(concat(id,' '),concat(concat(nom_nombres,' '),nom_apellidos)) as filtro FROM pacientes");
+        $pacientes = DB::select("SELECT *,concat(concat(id,' '),concat(concat(nom_nombres,' '),nom_apellidos)) as filtro FROM pacientes");
         return $pacientes;
     }
 }

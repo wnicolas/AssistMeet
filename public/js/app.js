@@ -2543,14 +2543,25 @@ __webpack_require__.r(__webpack_exports__);
       })["catch"](function (err) {
         alert("Algo acaba de salir mal");
       });
+    },
+    eliminar: function eliminar(id) {
+      var _this2 = this;
+
+      axios["delete"]("medicos/" + id).then(function (result) {
+        alert(result.data);
+
+        _this2.getMedico();
+      })["catch"](function (err) {
+        alert("Algo ocurrió en la eliminación del médico");
+      });
     }
   },
   computed: {
     filtros: function filtros() {
-      var _this2 = this;
+      var _this3 = this;
 
       return this.medicos.filter(function (p) {
-        return p.filtro.includes(_this2.filtro_documento);
+        return p.filtro.includes(_this3.filtro_documento);
       });
     }
   }
@@ -2569,6 +2580,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+//
+//
+//
+//
 //
 //
 //
@@ -2642,16 +2657,27 @@ __webpack_require__.r(__webpack_exports__);
       })["catch"](function (err) {
         alert("Algo acaba de salir mal");
       });
+    },
+    eliminar: function eliminar(id) {
+      var _this2 = this;
+
+      axios["delete"]('pacientes/' + id).then(function (result) {
+        alert(result.data);
+
+        _this2.getPaciente();
+      })["catch"](function (err) {
+        alert("Algo ocurrió en la eliminación del paciente");
+      });
     }
   },
   computed: {
     filtros: function filtros() {
-      var _this2 = this;
+      var _this3 = this;
 
       return this.paciente.filter(function (p) {
-        return p.filtro.includes(_this2.filtro_documento);
+        return p.filtro.includes(_this3.filtro_documento);
       }).filter(function (p) {
-        return p.sexo.includes(_this2.filtro_sexo);
+        return p.sexo.includes(_this3.filtro_sexo);
       });
     }
   }
@@ -39539,9 +39565,23 @@ var render = function() {
             _vm._v(" "),
             _c("td", [_vm._v(_vm._s(medico.nom_apellidos))]),
             _vm._v(" "),
-            _c("td", [_vm._v("Pulmonia")]),
+            _c("td", [_vm._v("General")]),
             _vm._v(" "),
-            _vm._m(1, true)
+            _c("td", [
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-outline-danger",
+                  attrs: { type: "button" },
+                  on: {
+                    click: function($event) {
+                      return _vm.eliminar(medico.id)
+                    }
+                  }
+                },
+                [_vm._v("\n            Eliminar\n          ")]
+              )
+            ])
           ])
         }),
         0
@@ -39566,18 +39606,6 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", { attrs: { scope: "col" } })
       ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("td", [
-      _c(
-        "button",
-        { staticClass: "btn btn-outline-danger", attrs: { type: "button" } },
-        [_vm._v("\n            Eliminar\n          ")]
-      )
     ])
   }
 ]
@@ -39699,7 +39727,21 @@ var render = function() {
             _vm._v(" "),
             _c("td", [_vm._v(_vm._s(paciente.sexo))]),
             _vm._v(" "),
-            _vm._m(1, true)
+            _c("td", [
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-outline-danger",
+                  attrs: { type: "button" },
+                  on: {
+                    click: function($event) {
+                      return _vm.eliminar(paciente.id)
+                    }
+                  }
+                },
+                [_vm._v("\n            Eliminar\n          ")]
+              )
+            ])
           ])
         }),
         0
@@ -39724,18 +39766,6 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", { attrs: { scope: "col" } })
       ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("td", [
-      _c(
-        "button",
-        { staticClass: "btn btn-outline-danger", attrs: { type: "button" } },
-        [_vm._v("\n            Eliminar\n          ")]
-      )
     ])
   }
 ]

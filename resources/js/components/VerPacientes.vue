@@ -42,7 +42,11 @@
           <td>{{ paciente.nom_apellidos }}</td>
           <td>{{ paciente.sexo }}</td>
           <td>
-            <button type="button" class="btn btn-outline-danger">
+            <button
+              type="button"
+              class="btn btn-outline-danger"
+              @click="eliminar(paciente.id)"
+            >
               Eliminar
             </button>
           </td>
@@ -72,6 +76,17 @@ export default {
         })
         .catch((err) => {
           alert("Algo acaba de salir mal");
+        });
+    },
+    eliminar(id) {
+      axios
+        .delete('pacientes/'+id)
+        .then((result) => {
+          alert(result.data);
+          this.getPaciente();
+        })
+        .catch((err) => {
+          alert("Algo ocurrió en la eliminación del paciente");
         });
     },
   },

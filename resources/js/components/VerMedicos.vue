@@ -30,9 +30,9 @@
           <td scope="row">{{ medico.id }}</td>
           <td>{{ medico.nom_nombres }}</td>
           <td>{{ medico.nom_apellidos }}</td>
-          <td>Pulmonia</td>
+          <td>General</td>
           <td>
-            <button type="button" class="btn btn-outline-danger">
+            <button type="button" class="btn btn-outline-danger" @click="eliminar(medico.id)">
               Eliminar
             </button>
           </td>
@@ -63,10 +63,23 @@ export default {
           alert("Algo acaba de salir mal");
         });
     },
+    eliminar(id) {
+      axios
+        .delete("medicos/" + id)
+        .then((result) => {
+          alert(result.data);
+          this.getMedico();
+        })
+        .catch((err) => {
+          alert("Algo ocurrió en la eliminación del médico");
+        });
+    },
   },
   computed: {
     filtros() {
-      return this.medicos.filter((p) => p.filtro.includes(this.filtro_documento));
+      return this.medicos.filter((p) =>
+        p.filtro.includes(this.filtro_documento)
+      );
     },
   },
 };

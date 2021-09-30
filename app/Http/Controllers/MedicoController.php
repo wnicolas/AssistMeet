@@ -45,7 +45,7 @@ class MedicoController extends Controller
             DB::statement('INSERT INTO medico_especialidad (id_medico, id_especialidad) values (?, ?)', [$request->id, $value]);
         }
 
-        $user=User::create([
+        $user = User::create([
             'name' => $medico->nom_nombres . ' ' . $medico->nom_apellidos,
             'email' => $medico->email,
             'role' => "Medico",
@@ -99,7 +99,11 @@ class MedicoController extends Controller
      */
     public function destroy($id)
     {
-        //
+        // return $id;
+        $medico = Medico::find($id);
+        $user = User::find($medico->user_id);
+        $user->delete();
+        return "Médico eliminado con éxito";
     }
 
     public function recuperarMedicos()
