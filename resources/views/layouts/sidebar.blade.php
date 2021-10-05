@@ -7,6 +7,7 @@
             @if (Auth::check() && Auth::user()->role === 'Administrador')
                 {{-- =====================Rutas disponibles administrador========================= --}}
                 <li><a href="{{ route('home') }}">Inicio</a></li>
+                <li><a href="{{ route('citas.create') }}">Citas</a></li>
                 {{-- =====================Rutas disponibles administrador========================= --}}
             @else
                 @if (Auth::check() && Auth::user()->role === 'Paciente')

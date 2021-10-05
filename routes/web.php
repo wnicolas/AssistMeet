@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CitaController;
 use App\Http\Controllers\MedicoController;
 use App\Http\Controllers\PacienteController;
 use Illuminate\Support\Facades\Route;
@@ -49,3 +50,4 @@ Route::get('recuperar-medicos', [MedicoController::class,'recuperarMedicos'])->m
 Route::resource('pacientes', PacienteController::class)->middleware('auth');
 Route::get('recuperar-pacientes', [PacienteController::class,'recuperarPacientes'])->middleware('auth');
 
+Route::resource('citas', CitaController::class);
