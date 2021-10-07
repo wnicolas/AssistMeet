@@ -18,9 +18,14 @@
           <label for="">Especialidad</label>
           <select v-model="cita.especialidad" class="form-control">
             <option value="">Elija una especialidad</option>
-            <option>Alguna especialidad</option>
-            <option>Alguna</option>
-            <option>especialidad</option>
+            <option>General</option>
+            <option>Dermatología</option>
+            <option>Ginecología</option>
+            <option>Urología</option>
+            <option>Oftalmología</option>
+            <option>Pediatría</option>
+            <option>Geriatría</option>
+            <option>Neumología</option>
           </select>
         </div>
       </div>
@@ -29,9 +34,14 @@
           <label for="">Sede</label>
           <select v-model="cita.sede" name="" class="form-control">
             <option value="">Elija una especialidad</option>
-            <option>Alguna sede</option>
-            <option>sede</option>
-            <option>Alguna</option>
+            <option>Bosa</option>
+            <option>Chapinero</option>
+            <option>Fontibón</option>
+            <option>Kennedy</option>
+            <option>San Cristobal</option>
+            <option>Suba</option>
+            <option>Teusaquillo</option>
+            <option>Usaquen</option>
           </select>
         </div>
       </div>
@@ -40,22 +50,40 @@
       <div class="col">
         <div class="form-group">
           <label for="">Paciente (opcional)</label>
-          <input v-model="cita.id_paciente" list="pacientes" class="form-control" />
+          <input
+            v-model="cita.id_paciente"
+            list="pacientes"
+            class="form-control"
+            placeholder="Identificación del paciente"
+          />
           <datalist id="pacientes">
-            <option value="Nicolas"></option>
-            <option value="Juan"></option>
-            <option value="Ana"></option>
+            <option
+              v-for="paciente in pacientes"
+              :key="paciente.id"
+              :value="paciente.id"
+            >
+              {{ paciente.filtro }}
+            </option>
           </datalist>
         </div>
       </div>
       <div class="col">
         <div class="form-group">
           <label for="">Médico</label>
-          <input v-model="cita.id_medico" list="Medicos" class="form-control" />
+          <input
+            v-model="cita.id_medico"
+            list="Medicos"
+            class="form-control"
+            placeholder="Identificación del médico"
+          />
           <datalist id="Medicos">
-            <option value="Camila"></option>
-            <option value="Valentina"></option>
-            <option value="Andrea"></option>
+            <option
+              v-for="medico in medicos"
+              :key="medico.id"
+              :value="medico.id"
+            >
+              {{ medico.filtro }}
+            </option>
           </datalist>
         </div>
       </div>
@@ -75,20 +103,47 @@ export default {
         id_paciente: "",
         id_medico: "",
       },
-      form:new FormData()
+      medicos: [],
+      pacientes: [],
+      form: new FormData(),
     };
   },
+  created() {
+    this.getMedicos();
+    this.getPacientes();
+  },
   methods: {
-    guardarCita(){
-      for(let key in this.cita){
-        this.form.append(key,this.cita[key]);
+    getMedicos() {
+      axios
+        .get("../recuperar-medicos")
+        .then((result) => {
+          this.medicos = result.data;
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    },
+    getPacientes() {
+      axios
+        .get("../recuperar-pacientes")
+        .then((result) => {
+          this.pacientes = result.data;
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    },
+    guardarCita() {
+      for (let key in this.cita) {
+        this.form.append(key, this.cita[key]);
       }
-      axios.post("../citas",this.form).then((result) => {
-        alert(result.data);
-      }).catch((err) => {
-        
-      });
-    }
+      axios
+        .post("../citas", this.form)
+        .then((result) => {
+          alert(result.data);
+        })
+        .catch((err) => {});
+    },
   },
 };
 </script>

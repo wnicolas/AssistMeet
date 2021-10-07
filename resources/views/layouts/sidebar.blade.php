@@ -3,26 +3,25 @@
         <img class="img-fluid" src="{{ asset('img/LogoAssistMeet.png') }}" alt="Logo de assistMeet">
     </div>
     <div class="opciones my-5">
-        <ul>
+        <nav class="nav nav-pills flex-column text-center">
             @if (Auth::check() && Auth::user()->role === 'Administrador')
                 {{-- =====================Rutas disponibles administrador========================= --}}
-                <li><a href="{{ route('home') }}">Inicio</a></li>
-                <li><a href="{{ route('citas.create') }}">Citas</a></li>
+                <a class="nav-link" href="{{ route('home') }}">Inicio</a>
+                <a href="{{ route('citas.create') }}">Citas</a>
                 {{-- =====================Rutas disponibles administrador========================= --}}
             @else
                 @if (Auth::check() && Auth::user()->role === 'Paciente')
                     {{-- =====================Rutas disponibles pacientes========================= --}}
-                    <li><a href="{{ route('home') }}">Inicio</a></li>
-                    <li><a href="{{ route('agendamiento-citas') }}">Agendamiento de citas</a></li>
-                    <li><a href="{{ route('historial-medico') }}">Tu historial médico</a></li>
-                    <li><a href="{{ route('tus-datos') }}">Tus datos de usuario</a></li>
+                    <a href="{{ route('home') }}">Inicio</a>
+                    <a class="nav-link" href="{{ route('agendamiento-citas') }}">Agendamiento de citas</a>
+                    <a class="nav-link" href="{{ route('historial-medico') }}">Tu historial médico</a>
+                    <a class="nav-link" href="{{ route('tus-datos') }}">Tus datos de usuario</a>
                     {{-- =====================Rutas disponibles pacientes========================= --}}
                 @else
                     <li>>Debes iniciar sesión</li>
                 @endif
 
             @endif
-
-        </ul>
+        </nav>
     </div>
 </div>

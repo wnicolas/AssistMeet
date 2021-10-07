@@ -2166,6 +2166,34 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -2176,10 +2204,34 @@ __webpack_require__.r(__webpack_exports__);
         id_paciente: "",
         id_medico: ""
       },
+      medicos: [],
+      pacientes: [],
       form: new FormData()
     };
   },
+  created: function created() {
+    this.getMedicos();
+    this.getPacientes();
+  },
   methods: {
+    getMedicos: function getMedicos() {
+      var _this = this;
+
+      axios.get("../recuperar-medicos").then(function (result) {
+        _this.medicos = result.data;
+      })["catch"](function (err) {
+        console.log(err);
+      });
+    },
+    getPacientes: function getPacientes() {
+      var _this2 = this;
+
+      axios.get("../recuperar-pacientes").then(function (result) {
+        _this2.pacientes = result.data;
+      })["catch"](function (err) {
+        console.log(err);
+      });
+    },
     guardarCita: function guardarCita() {
       for (var key in this.cita) {
         this.form.append(key, this.cita[key]);
@@ -38826,11 +38878,21 @@ var render = function() {
                 _vm._v("Elija una especialidad")
               ]),
               _vm._v(" "),
-              _c("option", [_vm._v("Alguna especialidad")]),
+              _c("option", [_vm._v("General")]),
               _vm._v(" "),
-              _c("option", [_vm._v("Alguna")]),
+              _c("option", [_vm._v("Dermatología")]),
               _vm._v(" "),
-              _c("option", [_vm._v("especialidad")])
+              _c("option", [_vm._v("Ginecología")]),
+              _vm._v(" "),
+              _c("option", [_vm._v("Urología")]),
+              _vm._v(" "),
+              _c("option", [_vm._v("Oftalmología")]),
+              _vm._v(" "),
+              _c("option", [_vm._v("Pediatría")]),
+              _vm._v(" "),
+              _c("option", [_vm._v("Geriatría")]),
+              _vm._v(" "),
+              _c("option", [_vm._v("Neumología")])
             ]
           )
         ])
@@ -38876,11 +38938,21 @@ var render = function() {
                 _vm._v("Elija una especialidad")
               ]),
               _vm._v(" "),
-              _c("option", [_vm._v("Alguna sede")]),
+              _c("option", [_vm._v("Bosa")]),
               _vm._v(" "),
-              _c("option", [_vm._v("sede")]),
+              _c("option", [_vm._v("Chapinero")]),
               _vm._v(" "),
-              _c("option", [_vm._v("Alguna")])
+              _c("option", [_vm._v("Fontibón")]),
+              _vm._v(" "),
+              _c("option", [_vm._v("Kennedy")]),
+              _vm._v(" "),
+              _c("option", [_vm._v("San Cristobal")]),
+              _vm._v(" "),
+              _c("option", [_vm._v("Suba")]),
+              _vm._v(" "),
+              _c("option", [_vm._v("Teusaquillo")]),
+              _vm._v(" "),
+              _c("option", [_vm._v("Usaquen")])
             ]
           )
         ])
@@ -38902,7 +38974,10 @@ var render = function() {
               }
             ],
             staticClass: "form-control",
-            attrs: { list: "pacientes" },
+            attrs: {
+              list: "pacientes",
+              placeholder: "Identificación del paciente"
+            },
             domProps: { value: _vm.cita.id_paciente },
             on: {
               input: function($event) {
@@ -38914,7 +38989,22 @@ var render = function() {
             }
           }),
           _vm._v(" "),
-          _vm._m(0)
+          _c(
+            "datalist",
+            { attrs: { id: "pacientes" } },
+            _vm._l(_vm.pacientes, function(paciente) {
+              return _c(
+                "option",
+                { key: paciente.id, domProps: { value: paciente.id } },
+                [
+                  _vm._v(
+                    "\n            " + _vm._s(paciente.filtro) + "\n          "
+                  )
+                ]
+              )
+            }),
+            0
+          )
         ])
       ]),
       _vm._v(" "),
@@ -38932,7 +39022,10 @@ var render = function() {
               }
             ],
             staticClass: "form-control",
-            attrs: { list: "Medicos" },
+            attrs: {
+              list: "Medicos",
+              placeholder: "Identificación del médico"
+            },
             domProps: { value: _vm.cita.id_medico },
             on: {
               input: function($event) {
@@ -38944,7 +39037,22 @@ var render = function() {
             }
           }),
           _vm._v(" "),
-          _vm._m(1)
+          _c(
+            "datalist",
+            { attrs: { id: "Medicos" } },
+            _vm._l(_vm.medicos, function(medico) {
+              return _c(
+                "option",
+                { key: medico.id, domProps: { value: medico.id } },
+                [
+                  _vm._v(
+                    "\n            " + _vm._s(medico.filtro) + "\n          "
+                  )
+                ]
+              )
+            }),
+            0
+          )
         ])
       ])
     ]),
@@ -38963,32 +39071,7 @@ var render = function() {
     )
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("datalist", { attrs: { id: "pacientes" } }, [
-      _c("option", { attrs: { value: "Nicolas" } }),
-      _vm._v(" "),
-      _c("option", { attrs: { value: "Juan" } }),
-      _vm._v(" "),
-      _c("option", { attrs: { value: "Ana" } })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("datalist", { attrs: { id: "Medicos" } }, [
-      _c("option", { attrs: { value: "Camila" } }),
-      _vm._v(" "),
-      _c("option", { attrs: { value: "Valentina" } }),
-      _vm._v(" "),
-      _c("option", { attrs: { value: "Andrea" } })
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
