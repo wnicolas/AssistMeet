@@ -25,6 +25,8 @@ Vue.component('registrar-paciente-component', require('./components/RegistrarPac
 Vue.component('ver-medicos-component', require('./components/VerMedicos.vue').default);
 Vue.component('ver-pacientes-component', require('./components/VerPacientes.vue').default);
 Vue.component('programar-citas-component', require('./components/ProgramarCitas.vue').default);
+Vue.component('programar-cita-paciente-component', require('./components/ProgramarCitaPaciente.vue').default);
+Vue.component('ver-citas-pacientes-component', require('./components/VerCitasPacientes.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

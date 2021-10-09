@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Cita;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class CitaController extends Controller
 {
@@ -83,5 +84,12 @@ class CitaController extends Controller
     public function destroy(Cita $cita)
     {
         //
+    }
+
+    public function citasPaciente($id)
+    {
+        $paciente=DB::select('SELECT * FROM users,pacientes WHERE users.id=pacientes.user_id AND users.id = ?', [$id]);
+        $citas = DB::select('SELECT c.*,concat(concat(m.nom_nombres," "),m.nom_apellidos) AS nombre_medico FROM citas AS c,medicos AS m WHERE c.id_medico=m.id AND c.id_paciente= ?', [$paciente[0]->id]);
+        return $citas;
     }
 }

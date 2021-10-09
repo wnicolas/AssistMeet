@@ -2089,6 +2089,148 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/ProgramarCitaPaciente.vue?vue&type=script&lang=js&":
+/*!****************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/ProgramarCitaPaciente.vue?vue&type=script&lang=js& ***!
+  \****************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  data: function data() {
+    return {
+      cita: {
+        f_cita: "",
+        especialidad: "",
+        sede: "",
+        id_medico: "",
+        id_paciente: ""
+      },
+      medicos: [],
+      form: new FormData(),
+      id_paciente: ""
+    };
+  },
+  props: {
+    user_id: null
+  },
+  created: function created() {
+    this.getMedicos();
+    this.getPaciente(this.user_id);
+  },
+  methods: {
+    getPaciente: function getPaciente(user_id) {
+      var _this = this;
+
+      axios.get("recuperar-citas-paciente/".concat(user_id)).then(function (result) {
+        _this.cita.id_paciente = result.data[0].id_paciente;
+      })["catch"](function (err) {
+        console.log(err);
+      });
+    },
+    getMedicos: function getMedicos() {
+      var _this2 = this;
+
+      axios.get("recuperar-medicos").then(function (result) {
+        _this2.medicos = result.data;
+      })["catch"](function (err) {
+        console.log(err);
+      });
+    },
+    guardarCita: function guardarCita() {
+      for (var key in this.cita) {
+        this.form.append(key, this.cita[key]);
+      }
+
+      axios.post("citas", this.form).then(function (result) {
+        alert(result.data);
+      })["catch"](function (err) {
+        alert(err);
+      });
+    }
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/ProgramarCitas.vue?vue&type=script&lang=js&":
 /*!*********************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/ProgramarCitas.vue?vue&type=script&lang=js& ***!
@@ -2627,6 +2769,68 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/VerCitasPacientes.vue?vue&type=script&lang=js&":
+/*!************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/VerCitasPacientes.vue?vue&type=script&lang=js& ***!
+  \************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  data: function data() {
+    return {
+      citas: []
+    };
+  },
+  props: {
+    user_id: null
+  },
+  created: function created() {
+    this.getCitasPaciente(this.user_id);
+  },
+  methods: {
+    getCitasPaciente: function getCitasPaciente(user_id) {
+      var _this = this;
+
+      axios.get("recuperar-citas-paciente/".concat(user_id)).then(function (result) {
+        _this.citas = result.data;
+      })["catch"](function (err) {
+        alert(err);
+      });
+    } // eliminar(id) {
+    //   axios
+    //     .delete("citas/" + id)
+    //     .then((result) => {
+    //       alert(result.data);
+    //       this.getCitasPaciente();
+    //     })
+    //     .catch((err) => {
+    //       alert("Algo ocurrió en la eliminación del médico");
+    //     });
+    // },
+
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/VerMedicos.vue?vue&type=script&lang=js&":
 /*!*****************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/VerMedicos.vue?vue&type=script&lang=js& ***!
@@ -2872,6 +3076,8 @@ Vue.component('registrar-paciente-component', __webpack_require__(/*! ./componen
 Vue.component('ver-medicos-component', __webpack_require__(/*! ./components/VerMedicos.vue */ "./resources/js/components/VerMedicos.vue")["default"]);
 Vue.component('ver-pacientes-component', __webpack_require__(/*! ./components/VerPacientes.vue */ "./resources/js/components/VerPacientes.vue")["default"]);
 Vue.component('programar-citas-component', __webpack_require__(/*! ./components/ProgramarCitas.vue */ "./resources/js/components/ProgramarCitas.vue")["default"]);
+Vue.component('programar-cita-paciente-component', __webpack_require__(/*! ./components/ProgramarCitaPaciente.vue */ "./resources/js/components/ProgramarCitaPaciente.vue")["default"]);
+Vue.component('ver-citas-pacientes-component', __webpack_require__(/*! ./components/VerCitasPacientes.vue */ "./resources/js/components/VerCitasPacientes.vue")["default"]);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -38350,6 +38556,45 @@ component.options.__file = "resources/js/components/ExampleComponent.vue"
 
 /***/ }),
 
+/***/ "./resources/js/components/ProgramarCitaPaciente.vue":
+/*!***********************************************************!*\
+  !*** ./resources/js/components/ProgramarCitaPaciente.vue ***!
+  \***********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _ProgramarCitaPaciente_vue_vue_type_template_id_ebd3e344___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ProgramarCitaPaciente.vue?vue&type=template&id=ebd3e344& */ "./resources/js/components/ProgramarCitaPaciente.vue?vue&type=template&id=ebd3e344&");
+/* harmony import */ var _ProgramarCitaPaciente_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ProgramarCitaPaciente.vue?vue&type=script&lang=js& */ "./resources/js/components/ProgramarCitaPaciente.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _ProgramarCitaPaciente_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _ProgramarCitaPaciente_vue_vue_type_template_id_ebd3e344___WEBPACK_IMPORTED_MODULE_0__.render,
+  _ProgramarCitaPaciente_vue_vue_type_template_id_ebd3e344___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/ProgramarCitaPaciente.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
 /***/ "./resources/js/components/ProgramarCitas.vue":
 /*!****************************************************!*\
   !*** ./resources/js/components/ProgramarCitas.vue ***!
@@ -38467,6 +38712,45 @@ component.options.__file = "resources/js/components/RegistrarPaciente.vue"
 
 /***/ }),
 
+/***/ "./resources/js/components/VerCitasPacientes.vue":
+/*!*******************************************************!*\
+  !*** ./resources/js/components/VerCitasPacientes.vue ***!
+  \*******************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _VerCitasPacientes_vue_vue_type_template_id_1b9a52ac___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./VerCitasPacientes.vue?vue&type=template&id=1b9a52ac& */ "./resources/js/components/VerCitasPacientes.vue?vue&type=template&id=1b9a52ac&");
+/* harmony import */ var _VerCitasPacientes_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./VerCitasPacientes.vue?vue&type=script&lang=js& */ "./resources/js/components/VerCitasPacientes.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _VerCitasPacientes_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _VerCitasPacientes_vue_vue_type_template_id_1b9a52ac___WEBPACK_IMPORTED_MODULE_0__.render,
+  _VerCitasPacientes_vue_vue_type_template_id_1b9a52ac___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/VerCitasPacientes.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
 /***/ "./resources/js/components/VerMedicos.vue":
 /*!************************************************!*\
   !*** ./resources/js/components/VerMedicos.vue ***!
@@ -38561,6 +38845,22 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/ProgramarCitaPaciente.vue?vue&type=script&lang=js&":
+/*!************************************************************************************!*\
+  !*** ./resources/js/components/ProgramarCitaPaciente.vue?vue&type=script&lang=js& ***!
+  \************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ProgramarCitaPaciente_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./ProgramarCitaPaciente.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/ProgramarCitaPaciente.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ProgramarCitaPaciente_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
 /***/ "./resources/js/components/ProgramarCitas.vue?vue&type=script&lang=js&":
 /*!*****************************************************************************!*\
   !*** ./resources/js/components/ProgramarCitas.vue?vue&type=script&lang=js& ***!
@@ -38606,6 +38906,22 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_RegistrarPaciente_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./RegistrarPaciente.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/RegistrarPaciente.vue?vue&type=script&lang=js&");
  /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_RegistrarPaciente_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/VerCitasPacientes.vue?vue&type=script&lang=js&":
+/*!********************************************************************************!*\
+  !*** ./resources/js/components/VerCitasPacientes.vue?vue&type=script&lang=js& ***!
+  \********************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_VerCitasPacientes_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./VerCitasPacientes.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/VerCitasPacientes.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_VerCitasPacientes_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
@@ -38658,6 +38974,23 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/ProgramarCitaPaciente.vue?vue&type=template&id=ebd3e344&":
+/*!******************************************************************************************!*\
+  !*** ./resources/js/components/ProgramarCitaPaciente.vue?vue&type=template&id=ebd3e344& ***!
+  \******************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ProgramarCitaPaciente_vue_vue_type_template_id_ebd3e344___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ProgramarCitaPaciente_vue_vue_type_template_id_ebd3e344___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ProgramarCitaPaciente_vue_vue_type_template_id_ebd3e344___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./ProgramarCitaPaciente.vue?vue&type=template&id=ebd3e344& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/ProgramarCitaPaciente.vue?vue&type=template&id=ebd3e344&");
+
+
+/***/ }),
+
 /***/ "./resources/js/components/ProgramarCitas.vue?vue&type=template&id=f8bc4314&":
 /*!***********************************************************************************!*\
   !*** ./resources/js/components/ProgramarCitas.vue?vue&type=template&id=f8bc4314& ***!
@@ -38705,6 +39038,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_RegistrarPaciente_vue_vue_type_template_id_206eeda3___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
 /* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_RegistrarPaciente_vue_vue_type_template_id_206eeda3___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./RegistrarPaciente.vue?vue&type=template&id=206eeda3& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/RegistrarPaciente.vue?vue&type=template&id=206eeda3&");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/VerCitasPacientes.vue?vue&type=template&id=1b9a52ac&":
+/*!**************************************************************************************!*\
+  !*** ./resources/js/components/VerCitasPacientes.vue?vue&type=template&id=1b9a52ac& ***!
+  \**************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_VerCitasPacientes_vue_vue_type_template_id_1b9a52ac___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_VerCitasPacientes_vue_vue_type_template_id_1b9a52ac___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_VerCitasPacientes_vue_vue_type_template_id_1b9a52ac___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./VerCitasPacientes.vue?vue&type=template&id=1b9a52ac& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/VerCitasPacientes.vue?vue&type=template&id=1b9a52ac&");
 
 
 /***/ }),
@@ -38785,6 +39135,245 @@ var staticRenderFns = [
     ])
   }
 ]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/ProgramarCitaPaciente.vue?vue&type=template&id=ebd3e344&":
+/*!*********************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/ProgramarCitaPaciente.vue?vue&type=template&id=ebd3e344& ***!
+  \*********************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "container my-5" }, [
+    _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col" }, [
+        _c("div", { staticClass: "form-group" }, [
+          _c("label", { attrs: { for: "" } }, [
+            _vm._v("Fecha y hora de la cita")
+          ]),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.cita.f_cita,
+                expression: "cita.f_cita"
+              }
+            ],
+            staticClass: "form-control",
+            attrs: { type: "datetime-local", name: "", id: "" },
+            domProps: { value: _vm.cita.f_cita },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(_vm.cita, "f_cita", $event.target.value)
+              }
+            }
+          })
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col" }, [
+        _c("div", { staticClass: "form-group" }, [
+          _c("label", { attrs: { for: "" } }, [_vm._v("Especialidad")]),
+          _vm._v(" "),
+          _c(
+            "select",
+            {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.cita.especialidad,
+                  expression: "cita.especialidad"
+                }
+              ],
+              staticClass: "form-control",
+              on: {
+                change: function($event) {
+                  var $$selectedVal = Array.prototype.filter
+                    .call($event.target.options, function(o) {
+                      return o.selected
+                    })
+                    .map(function(o) {
+                      var val = "_value" in o ? o._value : o.value
+                      return val
+                    })
+                  _vm.$set(
+                    _vm.cita,
+                    "especialidad",
+                    $event.target.multiple ? $$selectedVal : $$selectedVal[0]
+                  )
+                }
+              }
+            },
+            [
+              _c("option", { attrs: { value: "" } }, [
+                _vm._v("Elija una especialidad")
+              ]),
+              _vm._v(" "),
+              _c("option", [_vm._v("General")]),
+              _vm._v(" "),
+              _c("option", [_vm._v("Dermatología")]),
+              _vm._v(" "),
+              _c("option", [_vm._v("Ginecología")]),
+              _vm._v(" "),
+              _c("option", [_vm._v("Urología")]),
+              _vm._v(" "),
+              _c("option", [_vm._v("Oftalmología")]),
+              _vm._v(" "),
+              _c("option", [_vm._v("Pediatría")]),
+              _vm._v(" "),
+              _c("option", [_vm._v("Geriatría")]),
+              _vm._v(" "),
+              _c("option", [_vm._v("Neumología")])
+            ]
+          )
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col" }, [
+        _c("div", { staticClass: "form-group" }, [
+          _c("label", { attrs: { for: "" } }, [_vm._v("Sede")]),
+          _vm._v(" "),
+          _c(
+            "select",
+            {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.cita.sede,
+                  expression: "cita.sede"
+                }
+              ],
+              staticClass: "form-control",
+              attrs: { name: "" },
+              on: {
+                change: function($event) {
+                  var $$selectedVal = Array.prototype.filter
+                    .call($event.target.options, function(o) {
+                      return o.selected
+                    })
+                    .map(function(o) {
+                      var val = "_value" in o ? o._value : o.value
+                      return val
+                    })
+                  _vm.$set(
+                    _vm.cita,
+                    "sede",
+                    $event.target.multiple ? $$selectedVal : $$selectedVal[0]
+                  )
+                }
+              }
+            },
+            [
+              _c("option", { attrs: { value: "" } }, [
+                _vm._v("Elija una especialidad")
+              ]),
+              _vm._v(" "),
+              _c("option", [_vm._v("Bosa")]),
+              _vm._v(" "),
+              _c("option", [_vm._v("Chapinero")]),
+              _vm._v(" "),
+              _c("option", [_vm._v("Fontibón")]),
+              _vm._v(" "),
+              _c("option", [_vm._v("Kennedy")]),
+              _vm._v(" "),
+              _c("option", [_vm._v("San Cristobal")]),
+              _vm._v(" "),
+              _c("option", [_vm._v("Suba")]),
+              _vm._v(" "),
+              _c("option", [_vm._v("Teusaquillo")]),
+              _vm._v(" "),
+              _c("option", [_vm._v("Usaquen")])
+            ]
+          )
+        ])
+      ])
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col" }, [
+        _c("div", { staticClass: "form-group" }, [
+          _c("label", { attrs: { for: "" } }, [_vm._v("Médico")]),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.cita.id_medico,
+                expression: "cita.id_medico"
+              }
+            ],
+            staticClass: "form-control",
+            attrs: {
+              list: "Medicos",
+              placeholder: "Identificación del médico"
+            },
+            domProps: { value: _vm.cita.id_medico },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(_vm.cita, "id_medico", $event.target.value)
+              }
+            }
+          }),
+          _vm._v(" "),
+          _c(
+            "datalist",
+            { attrs: { id: "Medicos" } },
+            _vm._l(_vm.medicos, function(medico) {
+              return _c(
+                "option",
+                { key: medico.id, domProps: { value: medico.id } },
+                [
+                  _vm._v(
+                    "\n            " + _vm._s(medico.filtro) + "\n          "
+                  )
+                ]
+              )
+            }),
+            0
+          )
+        ])
+      ])
+    ]),
+    _vm._v(" "),
+    _c(
+      "button",
+      {
+        staticClass: "btn btn-primary",
+        on: {
+          click: function($event) {
+            return _vm.guardarCita()
+          }
+        }
+      },
+      [_vm._v("Crear cita")]
+    )
+  ])
+}
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -40010,6 +40599,61 @@ var render = function() {
       [_vm._v("\n    Registrar paciente\n  ")]
     )
   ])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/VerCitasPacientes.vue?vue&type=template&id=1b9a52ac&":
+/*!*****************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/VerCitasPacientes.vue?vue&type=template&id=1b9a52ac& ***!
+  \*****************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    _vm._l(_vm.citas, function(cita) {
+      return _c(
+        "div",
+        { key: cita.id, staticClass: "bg-blanco esquinas-redondeadas my-2" },
+        [
+          _c(
+            "div",
+            { staticClass: "container esquinas-redondeadas py-2 mb-2" },
+            [
+              _c("h4", [_vm._v("Revisión general")]),
+              _vm._v(" "),
+              _c("p", [
+                _vm._v("\n        Fecha: " + _vm._s(cita.f_cita) + " "),
+                _c("br"),
+                _vm._v("Sede: " + _vm._s(cita.sede)),
+                _c("br"),
+                _vm._v(
+                  "Doctor(a):\n        " +
+                    _vm._s(cita.nombre_medico) +
+                    "\n      "
+                )
+              ])
+            ]
+          )
+        ]
+      )
+    }),
+    0
+  )
 }
 var staticRenderFns = []
 render._withStripped = true

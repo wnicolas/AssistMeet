@@ -5,6 +5,7 @@ use App\Http\Controllers\MedicoController;
 use App\Http\Controllers\PacienteController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 /*
 |--------------------------------------------------------------------------
@@ -41,13 +42,19 @@ Route::get('/admin', function () {
 
 Auth::routes();
 
+Route::get('recuperar-id-paciente/{id_user}', function ($id_user) {
+    $paciente=DB::select('SELECT * FROM users,pacientes WHERE users.id=pacientes.user_id AND users.id = ?', [$id_user]);
+    return $paciente[0]->id_paciente;
+});
+
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 
 Route::resource('medicos', MedicoController::class)->middleware('auth');
-Route::get('recuperar-medicos', [MedicoController::class,'recuperarMedicos'])->middleware('auth');
+Route::get('recuperar-medicos', [MedicoController::class, 'recuperarMedicos'])->middleware('auth');
 
 Route::resource('pacientes', PacienteController::class)->middleware('auth');
-Route::get('recuperar-pacientes', [PacienteController::class,'recuperarPacientes'])->middleware('auth');
+Route::get('recuperar-pacientes', [PacienteController::class, 'recuperarPacientes'])->middleware('auth');
 
 Route::resource('citas', CitaController::class);
+Route::get('recuperar-citas-paciente/{id}', [CitaController::class, 'citasPaciente']);
