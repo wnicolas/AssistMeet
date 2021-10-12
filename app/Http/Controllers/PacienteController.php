@@ -48,6 +48,7 @@ class PacienteController extends Controller
         ]);
 
         DB::update("UPDATE `pacientes` SET `user_id` = ? WHERE `pacientes`.`id` = ?", [$user->id, $request->id]);
+        DB::insert("INSERT INTO historia_clinica values (NULL, ?)", [$request->id]);
 
         return "Paciente " . $paciente->nom_nombres . " " . $paciente->nom_apellidos . " registrado exitosamente.";
     }

@@ -18,9 +18,15 @@
                     <a class="nav-link" href="{{ route('tus-datos') }}">Tus datos de usuario</a>
                     {{-- =====================Rutas disponibles pacientes========================= --}}
                 @else
-                    <li>>Debes iniciar sesión</li>
-                @endif
+                    @if (Auth::check() && Auth::user()->role === 'Medico')
+                        {{-- =====================Rutas disponibles pacientes========================= --}}
+                        <a href="{{ route('home') }}">Inicio</a>
+                        {{-- =====================Rutas disponibles pacientes========================= --}}
+                    @else
+                        <li>>Debes iniciar sesión</li>
+                    @endif
 
+                @endif
             @endif
         </nav>
     </div>

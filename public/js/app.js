@@ -2761,7 +2761,7 @@ __webpack_require__.r(__webpack_exports__);
         alert(result.data);
         location.reload();
       })["catch"](function (err) {
-        alert("Algo acaba de salir mal");
+        console.log(err);
       });
     }
   }
@@ -2780,6 +2780,59 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -40982,7 +41035,61 @@ var render = function() {
                     _vm._s(cita.nombre_paciente) +
                     "\n      "
                 )
-              ])
+              ]),
+              _vm._v(" "),
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-primary",
+                  attrs: {
+                    type: "button",
+                    "data-toggle": "modal",
+                    "data-target": "#exampleModal" + cita.id
+                  }
+                },
+                [_vm._v("\n        Launch demo modal\n      ")]
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass: "modal fade",
+                  attrs: {
+                    id: "exampleModal" + cita.id,
+                    tabindex: "-1",
+                    "aria-labelledby": "exampleModalLabel",
+                    "aria-hidden": "true"
+                  }
+                },
+                [
+                  _c("div", { staticClass: "modal-dialog modal-xl" }, [
+                    _c("div", { staticClass: "modal-content" }, [
+                      _c("div", { staticClass: "modal-header" }, [
+                        _c(
+                          "h5",
+                          {
+                            staticClass: "modal-title",
+                            attrs: { id: "exampleModalLabel" }
+                          },
+                          [
+                            _vm._v(
+                              "Paciente: " + _vm._s(cita.nombre_paciente) + " "
+                            ),
+                            _c("br"),
+                            _vm._v("Id cita: " + _vm._s(cita.id))
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _vm._m(0, true)
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "modal-body" }, [_vm._v("...")]),
+                      _vm._v(" "),
+                      _vm._m(1, true)
+                    ])
+                  ])
+                ]
+              )
             ]
           )
         ]
@@ -40991,7 +41098,46 @@ var render = function() {
     0
   )
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "button",
+      {
+        staticClass: "close",
+        attrs: {
+          type: "button",
+          "data-dismiss": "modal",
+          "aria-label": "Close"
+        }
+      },
+      [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-footer" }, [
+      _c(
+        "button",
+        {
+          staticClass: "btn btn-secondary",
+          attrs: { type: "button", "data-dismiss": "modal" }
+        },
+        [_vm._v("\n                Close\n              ")]
+      ),
+      _vm._v(" "),
+      _c(
+        "button",
+        { staticClass: "btn btn-primary", attrs: { type: "button" } },
+        [_vm._v("\n                Save changes\n              ")]
+      )
+    ])
+  }
+]
 render._withStripped = true
 
 

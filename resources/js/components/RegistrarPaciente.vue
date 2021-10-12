@@ -160,7 +160,7 @@ export default {
           location.reload();
         })
         .catch((err) => {
-          alert("Algo acaba de salir mal");
+          console.log(err);
         });
     },
   },
