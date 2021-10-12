@@ -58,3 +58,4 @@ Route::get('recuperar-pacientes', [PacienteController::class, 'recuperarPaciente
 
 Route::resource('citas', CitaController::class);
 Route::get('recuperar-citas-paciente/{id}', [CitaController::class, 'citasPaciente']);
+Route::get('recuperar-citas-medico/{id}', [CitaController::class, 'citasMedicos']);

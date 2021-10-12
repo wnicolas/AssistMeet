@@ -13,7 +13,7 @@
             @include('paciente')
         @else
             @if (Auth::check() && Auth::user()->role === 'Medico')
-                Hola, médico
+                @include('medico')
             @else
                 <li>>Debes iniciar sesión</li>
             @endif
