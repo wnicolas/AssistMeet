@@ -9,12 +9,16 @@
         {{-- =====================Rutas disponibles administrador========================= --}}
     @else
         @if (Auth::check() && Auth::user()->role === 'Paciente')
-            
-           @include('paciente')
-        @else
-            <li>>Debes iniciar sesión</li>
-        @endif
 
+            @include('paciente')
+        @else
+            @if (Auth::check() && Auth::user()->role === 'Medico')
+                Hola, médico
+            @else
+                <li>>Debes iniciar sesión</li>
+            @endif
+
+        @endif
     @endif
 
     @include('layouts.footer')
