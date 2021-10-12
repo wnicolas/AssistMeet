@@ -2190,6 +2190,7 @@ __webpack_require__.r(__webpack_exports__);
     guardarNovedad: function guardarNovedad() {
       this.form = null;
       this.form = new FormData();
+      this.form.append("id_cita", this.cita.id);
       this.form.append("id_historia_clinica", this.cita.id_historia);
       this.form.append("descripcion", this.descripcion);
       axios.post("agregar-novedad", this.form).then(function (result) {

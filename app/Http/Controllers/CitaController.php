@@ -96,7 +96,7 @@ class CitaController extends Controller
     public function citasMedicos($id)
     {
         $medico = DB::select('SELECT * FROM users,medicos WHERE users.id=medicos.user_id AND users.id = ?', [$id]);
-        $citas = DB::select('SELECT c.*,concat(concat(p.nom_nombres," "),p.nom_apellidos) AS nombre_paciente, h.id AS id_historia FROM citas AS c,pacientes AS p, historia_clinica AS h WHERE c.id_paciente=p.id AND h.numero_documento_paciente=p.id AND c.id_medico=? ', [$medico[0]->id]);
+        $citas = DB::select("SELECT c.*,concat(concat(p.nom_nombres,' '),p.nom_apellidos) AS nombre_paciente, h.id AS id_historia FROM citas AS c,pacientes AS p, historia_clinica AS h WHERE c.id_paciente=p.id AND h.numero_documento_paciente=p.id AND estado='No iniciada' AND c.id_medico=? ", [$medico[0]->id]);
         return $citas;
     }
 }

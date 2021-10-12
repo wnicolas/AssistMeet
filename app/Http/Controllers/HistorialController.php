@@ -83,10 +83,13 @@ class HistorialController extends Controller
         //
     }
 
-    public function agregarNovedad(Request $request){
+    public function agregarNovedad(Request $request)
+    {
         //return $request->descripcion;
-        $descripcion=$request->descripcion;
-       $id_historia=$request->id_historia_clinica;
+        $descripcion = $request->descripcion;
+        $id_historia = $request->id_historia_clinica;
+        $id_cita=$request->id_cita;
+        DB::update("UPDATE citas SET estado = 'Terminada' WHERE id = ?", [$id_cita]);
         return DB::statement("INSERT INTO novedades VALUES (NULL,NULL,?, ?)", [$descripcion, $id_historia]);
     }
 }

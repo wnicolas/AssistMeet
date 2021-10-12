@@ -88,7 +88,8 @@ export default {
   methods: {
     guardarNovedad() {
       this.form = null;
-      this.form=new FormData();
+      this.form = new FormData();
+      this.form.append("id_cita", this.cita.id);
       this.form.append("id_historia_clinica", this.cita.id_historia);
       this.form.append("descripcion", this.descripcion);
 
