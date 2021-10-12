@@ -24,6 +24,7 @@ Vue.component('registrar-medico-component', require('./components/RegistrarMedic
 Vue.component('registrar-paciente-component', require('./components/RegistrarPaciente.vue').default);
 Vue.component('ver-medicos-component', require('./components/VerMedicos.vue').default);
 Vue.component('ver-pacientes-component', require('./components/VerPacientes.vue').default);
+Vue.component('ver-datos-pacientes-component', require('./components/VerDatosPaciente.vue').default);
 Vue.component('programar-citas-component', require('./components/ProgramarCitas.vue').default);
 Vue.component('programar-cita-paciente-component', require('./components/ProgramarCitaPaciente.vue').default);
 Vue.component('ver-citas-pacientes-component', require('./components/VerCitasPacientes.vue').default);

@@ -2,13 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Paciente;
-use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Hash;
 
-class PacienteController extends Controller
+class HistorialController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -38,18 +34,7 @@ class PacienteController extends Controller
      */
     public function store(Request $request)
     {
-        // return $request->all();
-        $paciente = Paciente::create($request->all());
-
-        $user = User::create([
-            'name' => $paciente->nom_nombres . ' ' . $paciente->nom_apellidos,
-            'email' => $paciente->email,
-            'password' => Hash::make('secret'),
-        ]);
-
-        DB::update("UPDATE `pacientes` SET `user_id` = ? WHERE `pacientes`.`id` = ?", [$user->id, $request->id]);
-
-        return "Paciente " . $paciente->nom_nombres . " " . $paciente->nom_apellidos . " registrado exitosamente.";
+        //
     }
 
     /**
@@ -60,8 +45,7 @@ class PacienteController extends Controller
      */
     public function show($id)
     {
-        $paciente = DB::select('select p.* from users u, pacientes p where u.id=p.user_id and u.id=?', [$id]);
-        return $paciente;
+        //
     }
 
     /**
@@ -84,8 +68,7 @@ class PacienteController extends Controller
      */
     public function update(Request $request, $id)
     {
-        
-      
+        //
     }
 
     /**
@@ -96,17 +79,6 @@ class PacienteController extends Controller
      */
     public function destroy($id)
     {
-        // return $id;
-        $paciente = Paciente::find($id);
-        $user = User::find($paciente->user_id);
-        $user->delete();
-        return "Paciente eliminado con éxito";
-    }
-
-    public function recuperarPacientes()
-    {
-        // return "Hola mundi";
-        $pacientes = DB::select("SELECT *,concat(concat(id,' '),concat(concat(nom_nombres,' '),nom_apellidos)) as filtro FROM pacientes");
-        return $pacientes;
+        //
     }
 }
