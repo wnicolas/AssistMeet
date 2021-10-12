@@ -29,6 +29,8 @@ Vue.component('programar-citas-component', require('./components/ProgramarCitas.
 Vue.component('programar-cita-paciente-component', require('./components/ProgramarCitaPaciente.vue').default);
 Vue.component('ver-citas-pacientes-component', require('./components/VerCitasPacientes.vue').default);
 Vue.component('ver-citas-medicos-component', require('./components/VerCitasMedicos.vue').default);
+Vue.component('ver-novedades-component', require('./components/FormularioNovedades.vue').default);
+
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

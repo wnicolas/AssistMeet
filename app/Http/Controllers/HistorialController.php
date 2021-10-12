@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class HistorialController extends Controller
 {
@@ -80,5 +81,12 @@ class HistorialController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function agregarNovedad(Request $request){
+        //return $request->descripcion;
+        $descripcion=$request->descripcion;
+       $id_historia=$request->id_historia_clinica;
+        return DB::statement("INSERT INTO novedades VALUES (NULL,NULL,?, ?)", [$descripcion, $id_historia]);
     }
 }

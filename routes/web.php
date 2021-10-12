@@ -1,8 +1,10 @@
 <?php
 
 use App\Http\Controllers\CitaController;
+use App\Http\Controllers\HistorialController;
 use App\Http\Controllers\MedicoController;
 use App\Http\Controllers\PacienteController;
+use GuzzleHttp\Psr7\Request;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -59,3 +61,5 @@ Route::get('recuperar-pacientes', [PacienteController::class, 'recuperarPaciente
 Route::resource('citas', CitaController::class);
 Route::get('recuperar-citas-paciente/{id}', [CitaController::class, 'citasPaciente']);
 Route::get('recuperar-citas-medico/{id}', [CitaController::class, 'citasMedicos']);
+
+Route::post('agregar-novedad', [HistorialController::class,"agregarNovedad"]);
